@@ -12,26 +12,26 @@ import com.journaldev.springhibernate.dao.PersonDAO;
 import com.journaldev.springhibernate.model.Person;
 
 @Service
-@ManagedBean(name="personService")
+@ManagedBean(name = "personService")
 @SessionScoped
 public class PersonServiceImpl implements PersonService {
 
-	private PersonDAO personDAO;
-	 
+    private PersonDAO personDAO;
+
     public void setPersonDAO(PersonDAO personDAO) {
         this.personDAO = personDAO;
     }
- 
+
     @Override
     @Transactional
     public void addPerson(Person p) {
         this.personDAO.addPerson(p);
     }
- 
+
     @Override
     @Transactional
     public List<Person> listPersons() {
         return this.personDAO.listPersons();
     }
- 
+
 }
